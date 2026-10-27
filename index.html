@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoppin | Online Store</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="logo">Shoppin<span>.</span></a>
+        <button class="cart-top" onclick="scrollToCart()">
+            🛒 Cart (<span id="cartCount">0</span>)
+        </button>
+    </nav>
+
+    <header class="hero">
+        <p class="eyebrow">YOUR EVERYDAY SHOPPING DESTINATION</p>
+        <h1>Welcome to Shoppin</h1>
+        <p>Find your favourite products at the best prices.</p>
+        <button class="hero-button" onclick="scrollToProducts()">
+            Explore Products ↓
+        </button>
+    </header>
+
+    <main class="layout">
+        <section class="products-section" id="productsSection">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">HANDPICKED FOR YOU</p>
+                    <h2>Our Products</h2>
+                </div>
+                <span id="productCount" class="product-count">12 products</span>
+            </div>
+
+            <div class="filters">
+                <input type="search" id="search" placeholder="Search products..." aria-label="Search products">
+
+                <select id="category" aria-label="Filter by category">
+                    <option value="all">All Categories</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Accessories">Accessories</option>
+                    <option value="Lifestyle">Lifestyle</option>
+                </select>
+
+                <select id="sort" aria-label="Sort products">
+                    <option value="default">Sort By</option>
+                    <option value="lowToHigh">Price: Low to High</option>
+                    <option value="highToLow">Price: High to Low</option>
+                    <option value="name">Name: A to Z</option>
+                </select>
+            </div>
+
+            <div id="productList" class="product-grid">
+                <p class="loading">Loading products...</p>
+            </div>
+        </section>
+
+        <aside class="cart-panel" id="shoppingCart">
+            <div class="cart-heading">
+                <div>
+                    <p class="eyebrow">YOUR SELECTION</p>
+                    <h2>Shopping Cart</h2>
+                </div>
+                <span class="cart-icon">🛍️</span>
+            </div>
+
+            <div id="cartItems" class="cart-items">
+                <p class="empty-cart">Your cart is empty.</p>
+            </div>
+
+            <div class="coupon-box">
+                <label for="couponCode">Discount Coupon</label>
+                <div class="coupon-controls">
+                    <input type="text" id="couponCode" placeholder="Enter SAVE10" autocomplete="off">
+                    <button type="button" id="applyCouponBtn">Apply</button>
+                </div>
+                <p id="couponMessage" aria-live="polite"></p>
+            </div>
+
+            <div class="price-summary">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">₹0.00</span>
+                </div>
+                <div class="summary-row discount-row">
+                    <span>Discount</span>
+                    <span id="discount">- ₹0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery</span>
+                    <span id="delivery">₹0.00</span>
+                </div>
+                <p class="delivery-note">Free delivery on orders of ₹2,000 or more.</p>
+                <div class="summary-row total-row">
+                    <strong>Total</strong>
+                    <strong id="total">₹0.00</strong>
+                </div>
+            </div>
+
+            <button id="checkoutBtn" class="checkout-button" type="button" disabled>
+                Proceed to Checkout →
+            </button>
+
+            <p class="secure-note">🔒 Demo checkout · No real payment required</p>
+        </aside>
+    </main>
+
+    <footer>
+        <a href="#" class="footer-logo">Shoppin<span>.</span></a>
+        <p>CE-1 Mini Project</p>
+        <p>Created using HTML, CSS and JavaScript</p>
+    </footer>
+
+    <div class="modal" id="checkoutModal" aria-hidden="true">
+        <div class="modal-card">
+            <button type="button" class="close-modal" id="closeModalBtn" aria-label="Close checkout">&times;</button>
+
+            <p class="eyebrow">ALMOST YOURS</p>
+            <h2>Complete Your Order</h2>
+            <p class="modal-description">Enter your details to place your demo order.</p>
+
+            <form id="checkoutForm">
+                <label for="customerName">Full Name</label>
+                <input type="text" id="customerName" required placeholder="Enter your full name">
+
+                <label for="customerEmail">Email Address</label>
+                <input type="email" id="customerEmail" required placeholder="you@example.com">
+
+                <div class="checkout-total">
+                    <span>Amount to pay</span>
+                    <strong id="checkoutTotal">₹0.00</strong>
+                </div>
+
+                <button type="submit" class="checkout-button">
+                    Place Demo Order
+                </button>
+            </form>
+
+            <div id="orderMessage" class="order-message" aria-live="polite"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>
